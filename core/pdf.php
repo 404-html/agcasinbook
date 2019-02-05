@@ -1,4 +1,33 @@
 <?php
+function poplist() {
+	if (file_exists('popkw.txt')) {
+		$myfile = fopen("popkw.txt", "r") or die("Unable to open file!");
+		while( $i < 30) {
+			$seek = rand(0, filesize("popkw.txt"));
+			if ($seek > 0) {
+				fseek($myfile, $seek);
+				fgets($myfile);
+			}
+			$kiwot = fgets($myfile);
+			if (!empty($kiwot)) {
+				$kiwot = trim(preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $kiwot), ' ');
+				$url = str_replace (' ','-',$kiwot);
+				$url = '/'.$url.'.pdf';
+                $judul = preg_replace("/^(\w+\s)/", "", $kiwot);
+				echo '<a href="'.$url.'" title="'.ucwords($judul).'">'.ucwords($judul).'</a>, ';
+				
+			}
+			$i++;
+		}
+		fclose($myfile);
+	}
+}
+
+ob_start();
+echo poplist();
+$poplist = ob_get_contents();
+ob_end_clean();
+
 $file = $_GET['file'];
 $tanggal = date('d M Y',strtotime("-3 days"));
 $title = str_replace('-', ' ', $file);
@@ -56,7 +85,7 @@ foreach($load->channel->item as $xml){
 }
 
 $html .= '</div>
-
+'.$poplist.'
 <a href="/" title="Home">Home</a> | <a href="/sitemap/'.$sitemap.'.xml" title="Sitemap">Sitemap</a>
 </body>
 </html>';
