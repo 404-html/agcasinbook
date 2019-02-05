@@ -1,0 +1,32 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+#RewriteRule ^(.*)\.html$ $1.pdf [L,R]
+
+RewriteRule ^(.*).pdf?$ index.php?tipe=read&file=$1
+
+RewriteRule ^robots.txt?$ index.php?tipe=robots
+
+RewriteRule ^ambik?$ index.php?tipe=ambik
+RewriteRule ^dmca?$ index.php?tipe=dmca
+RewriteRule ^disclaimer?$ index.php?tipe=disclaimer
+RewriteRule ^contact?$ index.php?tipe=contact
+
+ErrorDocument 404 /404.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+RewriteRule ^([A-Za-z0-9-]+)/?_([A-Za-z0-9-]+)/?.jpg$ images.php?asin=$1&s=$2 [L]
+RewriteRule ^([A-Za-z0-9-]+).png$ gambar.php?file=$1 [L]
+RewriteRule ([0-9]+).xml$ sitemap.xml.php?url=$1 [L]
+RewriteRule sitemap.xml$ sitemap-index.xml.php?url=$1 [L]
+RewriteRule feed(.*)$ feed.php?url=$1 [L]
+</IfModule>
+
+#php_flag log_errors Off

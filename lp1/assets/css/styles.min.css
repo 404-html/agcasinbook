@@ -1,0 +1,32 @@
+body{background-color:#535659}#hero{width:100%;height:100vh;padding-top:60px;text-align:center}
+.overlay {
+    position: fixed;
+    z-index: 1000; /* Something high */
+    height: 320px;
+    width: 450px;
+    background: white;
+    top: 50%;
+    left: 50%;
+    margin-left: -225px; /* Negative half width */
+    margin-top: -100px; /* Negative half height */
+    box-shadow: 0 0 0 2038px rgba(0,0,0,.5); /* The semi-transparent bg. Something weird about Safari and numbers bigger than this */
+    -webkit-transition: 1s; /* Little extra spice */
+	  border-radius: 5px;
+	  display:block
+}
+.ct{
+	margin: 20px 30px 0 30px;
+	font-size: 12px;
+	text-align:center;line-height:24px;font-weight:bold;
+}
+.blue{
+	color:#2370B6;
+	font-weight:bold;font-size: 16px;
+}
+.red{
+color: #ff0000; font-weight: bold;font-size: 16px;
+}
+.secure{font-size:12px;font-weight:bold;color:#777;margin-top:10px; text-align:center;}
+
+#continue{background:#2370b6;background:-moz-linear-gradient(top, #2370b6 0%, #226db3 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #2370b6), color-stop(100%, #226db3));background:-webkit-linear-gradient(top, #2370b6 0%, #226db3 100%);background:-o-linear-gradient(top, #2370b6 0%, #226db3 100%);background:-ms-linear-gradient(top, #2370b6 0%, #226db3 100%);background:linear-gradient(to bottom, #2370b6 0%, #226db3 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$special-blue', endColorstr='#226db3',GradientType=0 );border:0.0625rem solid #1d64a6;box-shadow:0 0 0 0.0625rem #428dd1 inset;color:#fff;font-size:1.3em;font-weight:bold;padding:1rem 2rem;text-decoration:none;text-transform:uppercase;text-shadow:0 0.0625rem 0 #333;-webkit-border-radius:0.3125rem;border-radius:0.3125rem;}
+#continue:hover{background:#277dcb}
