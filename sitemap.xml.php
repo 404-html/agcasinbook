@@ -28,7 +28,7 @@ foreach ($urls as $link) {
 echo "\t<url>\n";
 echo "\t\t<loc>".$servername."/".seo_friendly_url($link).".pdf</loc>\n";
 echo "\t\t<lastmod>".date("Y-m-d\TH:m:s+00:00", getTanggal($interval*$i))."</lastmod>\n";
-echo "\t\t<changefreq></changefreq>\n";
+echo "\t\t<changefreq>weekly</changefreq>\n";
 echo "\t\t<priority>".$priority."</priority>\n";
 echo "\t</url>\n";
 }

